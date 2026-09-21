@@ -1,658 +1,97 @@
-<!DOCTY
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Emmanuel - Emmystick">
-    <meta name="description" content="Emmystick's professional portfolio - Aspiring Web Developer, AI Visual Creator and Drummer.">
 
-    <title>Emmystick | Personal Portfolio</title>
+    <meta name="author" content="Emmanuel - Emmystick">
+    <meta name="description" content="Emmystick's portfolio. Aspiring Web Developer, AI Visual Creator and Drummer based in Lagos, Nigeria.">
+
+    <title>Emmystick | Creative Developer</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <style>
-        /* GENERAL STYLES */
-        :root {
-            --bg: #080d19;
-            --card: #111c30;
-            --accent: #7c9cff;
-            --green: #5ce1c2;
-            --text: #f3f6ff;
-            --muted: #a0aec5;
-            --border: rgba(255,255,255,0.09);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 90px;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1120px;
-            margin: auto;
-        }
-
-        .section {
-            padding: 100px 0;
-        }
-
-        .section-label {
-            color: var(--green);
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: clamp(30px, 5vw, 45px);
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .highlight {
-            color: var(--accent);
-        }
-
-        .section-description {
-            color: var(--muted);
-            max-width: 650px;
-            margin-bottom: 40px;
-        }
-
-        /* NAVIGATION */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(8,13,25,0.92);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav {
-            min-height: 78px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 23px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--muted);
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--green);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            color: white;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 120px 0 70px;
-            background: radial-gradient(
-                ellipse at 85% 20%,
-                rgba(124,156,255,0.13),
-                transparent 40%
-            );
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1.4fr 0.8fr;
-            align-items: center;
-            gap: 60px;
-        }
-
-        .hero-tag {
-            display: inline-block;
-            padding: 7px 14px;
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            color: var(--green);
-            font-size: 12px;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 7vw, 82px);
-            line-height: 1.08;
-            letter-spacing: -3px;
-            margin-bottom: 22px;
-        }
-
-        .hero h2 {
-            font-size: clamp(17px, 2.5vw, 23px);
-            font-weight: 500;
-            color: var(--muted);
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            color: var(--muted);
-            max-width: 580px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 13px 23px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 14px;
-            border: 1px solid transparent;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #081020;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(124,156,255,0.2);
-        }
-
-        .btn-outline {
-            border-color: var(--border);
-            color: var(--text);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .hero-visual {
-            position: relative;
-            max-width: 360px;
-            width: 100%;
-            margin: auto;
-        }
-
-        .hero-image {
-            aspect-ratio: 1;
-            border-radius: 30px;
-            background: linear-gradient(145deg, #1a2c4c, #101729);
-            border: 1px solid var(--border);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .hero-placeholder {
-            font-size: 90px;
-            font-weight: 800;
-            color: var(--accent);
-            letter-spacing: 5px;
-        }
-
-        .floating-badge {
-            position: absolute;
-            bottom: 20px;
-            left: -25px;
-            padding: 13px 18px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            font-size: 13px;
-        }
-
-        .floating-badge i {
-            color: var(--green);
-            margin-right: 7px;
-        }
-
-        /* ABOUT SECTION */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-
-        .about-text p {
-            color: var(--muted);
-            margin-bottom: 18px;
-        }
-
-        .about-details {
-            display: grid;
-            gap: 15px;
-        }
-
-        .detail-card {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 18px;
-            border-radius: 12px;
-        }
-
-        .detail-card i {
-            color: var(--green);
-            font-size: 21px;
-            width: 25px;
-        }
-
-        .detail-card span {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* SKILLS SECTION */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            padding: 28px;
-            border-radius: 18px;
-            transition: 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
-        }
-
-        .skill-card i {
-            font-size: 32px;
-            color: var(--accent);
-            margin-bottom: 18px;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .skill-card p {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* PROJECTS SECTION */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .project-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-7px);
-            border-color: var(--accent);
-        }
-
-        .project-image {
-            height: 180px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #18294a, #101729);
-            font-size: 50px;
-            color: var(--accent);
-        }
-
-        .project-info {
-            padding: 23px;
-        }
-
-        .project-tag {
-            color: var(--green);
-            font-size: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .project-info h3 {
-            margin: 10px 0;
-            font-size: 18px;
-        }
-
-        .project-info p {
-            color: var(--muted);
-            font-size: 14px;
-            margin-bottom: 18px;
-        }
-
-        .project-link {
-            color: var(--accent);
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        /* LEARNING JOURNEY */
-        .journey-box {
-            padding: 35px;
-            background: linear-gradient(120deg, #152342, #111c30);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-        }
-
-        .journey-box p {
-            color: var(--muted);
-            max-width: 800px;
-        }
-
-        .journey-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 22px;
-        }
-
-        .journey-tags span {
-            border: 1px solid var(--border);
-            padding: 7px 13px;
-            border-radius: 30px;
-            font-size: 12px;
-            color: var(--green);
-        }
-
-        /* CONTACT SECTION */
-        .contact-box {
-            text-align: center;
-            padding: 55px 30px;
-            border: 1px solid var(--border);
-            border-radius: 22px;
-            background: radial-gradient(
-                ellipse at top,
-                rgba(124,156,255,0.12),
-                var(--card) 70%
-            );
-        }
-
-        .contact-box p {
-            color: var(--muted);
-            max-width: 600px;
-            margin: 0 auto 25px;
-        }
-
-        .contact-box .hero-buttons {
-            justify-content: center;
-        }
-
-        /* FOOTER */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 28px 0;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .footer-content p {
-            color: var(--muted);
-            font-size: 13px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 18px;
-        }
-
-        .social-links a {
-            font-size: 21px;
-            color: var(--muted);
-            transition: 0.3s;
-        }
-
-        .social-links a:hover {
-            color: var(--green);
-            transform: translateY(-3px);
-        }
-
-        /* SCROLL ANIMATION */
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-            transition: opacity 0.7s ease, transform 0.7s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* MOBILE RESPONSIVENESS */
-        @media (max-width: 900px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-
-            .hero-visual {
-                max-width: 300px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .skills-grid,
-            .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .section {
-                padding: 70px 0;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 78px;
-                left: 0;
-                width: 100%;
-                padding: 25px 5%;
-                background: var(--bg);
-                border-bottom: 1px solid var(--border);
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .hero h1 {
-                letter-spacing: -1.5px;
-            }
-
-            .skills-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .floating-badge {
-                left: -10px;
-            }
-
-            .journey-box {
-                padding: 25px;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                transition-duration: 0.01ms !important;
-            }
-
-            .reveal {
-                opacity: 1;
-                transform: none;
-            }
-        }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- External JavaScript -->
+    <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <!-- NAVIGATION -->
-    <header>
-        <nav class="container">
+    <!-- HEADER -->
+    <header class="header">
+        <nav class="navbar container">
 
             <a href="#home" class="logo">
-                EMMY<span>STICK</span>
+                EMMY<span>STICK</span><span class="logo-dot">.</span>
             </a>
 
             <button class="menu-toggle"
                 id="menu-toggle"
-                aria-label="Open navigation menu"
+                aria-label="Open navigation"
                 aria-expanded="false"
-                aria-controls="nav-links">
+                aria-controls="nav-menu">
+
                 <i class="fas fa-bars"></i>
             </button>
 
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <ul class="nav-menu" id="nav-menu">
 
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link nav-contact">Contact Me <i class="fas fa-arrow-up-right-from-square"></i></a></li>
+
+            </ul>
         </nav>
     </header>
+
 
     <main>
 
         <!-- HERO SECTION -->
-        <section class="hero" id="home">
-            <div class="container hero-content">
+        <section class="hero section" id="home">
 
-                <div class="hero-text reveal">
+            <div class="container hero-grid">
 
-                    <span class="hero-tag">
-                        <i class="fas fa-circle"></i>
-                        Learning • Building • Connecting
-                    </span>
+                <div class="hero-content reveal">
+
+                    <div class="availability">
+                        <span class="status-dot"></span>
+                        Aspiring Developer • Open to Learning
+                    </div>
+
+                    <p class="hero-intro">HELLO, I'M EMMANUEL</p>
 
                     <h1>
-                        Hi, I'm <span class="highlight">Emmystick.</span>
+                        I Build Ideas<br>
+                        Into <span class="gradient-text">Digital</span><br>
+                        Experiences.
                     </h1>
 
-                    <h2>
-                        Aspiring Web Developer | AI Visual Creator | Drummer
+                    <h2 class="hero-role">
+                        Aspiring Web Developer
+                        <span>/</span> AI Visual Creator
+                        <span>/</span> Drummer
                     </h2>
 
-                    <p>
-                        I'm Emmanuel, a creative learner passionate about
-                        technology, design, and music. I'm building my skills,
-                        creating projects, and turning ideas into digital
-                        experiences one step at a time.
+                    <p class="hero-description">
+                        I'm Emmanuel, also known as Emmystick.
+                        I love technology, creativity, and building
+                        things that bring ideas to life.
+                        I'm learning, creating, and growing
+                        one project at a time.
                     </p>
 
                     <div class="hero-buttons">
@@ -667,99 +106,456 @@
                         </a>
 
                     </div>
+
+                    <div class="hero-socials">
+
+                        <span>Find me on</span>
+
+                        <a href="https://github.com/emmystick785-gif"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+
+                        <a href="https://wa.me/2348142566373"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                    </div>
                 </div>
 
+
+                <!-- HERO VISUAL -->
                 <div class="hero-visual reveal">
 
-                    <div class="hero-image">
+                    <div class="visual-glow"></div>
 
-                        <!--
-                        TO ADD YOUR PHOTO:
-                        1. Put your photo in the same folder as index.html.
-                        2. Name it emmanuel.jpg.
-                        3. Replace the placeholder below with:
-                        <img src="emmanuel.jpg" alt="Emmanuel - Emmystick">
-                        -->
+                    <div class="profile-card">
 
-                        <div class="hero-placeholder">ES</div>
+                        <div class="profile-top">
+                            <span class="window-dot"></span>
+                            <span class="window-dot"></span>
+                            <span class="window-dot"></span>
+
+                            <span class="profile-label">MY CREATIVE SPACE</span>
+                        </div>
+
+                        <div class="profile-avatar">
+                            <span>ES</span>
+                        </div>
+
+                        <h3>Emmystick</h3>
+
+                        <p class="profile-subtitle">
+                            Code. Create. Inspire.
+                        </p>
+
+                        <div class="profile-divider"></div>
+
+                        <div class="profile-interests">
+                            <span><i class="fas fa-code"></i> Development</span>
+                            <span><i class="fas fa-wand-magic-sparkles"></i> AI Visuals</span>
+                            <span><i class="fas fa-drum"></i> Music</span>
+                        </div>
 
                     </div>
 
-                    <div class="floating-badge">
+                    <div class="floating-card floating-card-top">
                         <i class="fas fa-code"></i>
-                        Growing in Tech
+                        <div>
+                            <strong>Creative Mind</strong>
+                            <small>Always learning</small>
+                        </div>
+                    </div>
+
+                    <div class="floating-card floating-card-bottom">
+                        <i class="fas fa-laptop-code"></i>
+                        <div>
+                            <strong>Building Projects</strong>
+                            <small>One step at a time</small>
+                        </div>
                     </div>
 
                 </div>
 
             </div>
+
+            <div class="hero-bottom container">
+                <span>BASED IN LAGOS, NIGERIA</span>
+                <span>SCROLL TO EXPLORE <i class="fas fa-arrow-down"></i></span>
+            </div>
+
         </section>
 
+
         <!-- ABOUT SECTION -->
-        <section class="section" id="about">
+        <section class="section about-section" id="about">
+
             <div class="container">
+
+                <div class="section-heading reveal">
+                    <p class="section-label">GET TO KNOW ME</p>
+
+                    <h2 class="section-title">
+                        A Little About <span class="gradient-text">Myself.</span>
+                    </h2>
+
+                    <p class="section-description">
+                        A creative learner with a passion for technology,
+                        digital experiences, and music.
+                    </p>
+                </div>
 
                 <div class="about-grid">
 
                     <div class="about-text reveal">
 
-                        <div class="section-label">Get to know me</div>
-
-                        <h2 class="section-title">
-                            About <span class="highlight">Me</span>
-                        </h2>
+                        <h3>
+                            Learning today.<br>
+                            <span class="gradient-text">Building for tomorrow.</span>
+                        </h3>
 
                         <p>
-                            I'm Emmanuel, also known as Emmystick, an aspiring
-                            web developer, AI visual creator, and drummer
-                            based in Lagos State, Nigeria.
+                            I'm Emmanuel, also known as Emmystick,
+                            an aspiring web developer, AI visual creator,
+                            and drummer based in Lagos State, Nigeria.
                         </p>
 
                         <p>
-                            I'm currently developing my skills in HTML, CSS,
-                            JavaScript, and Python while exploring creative
-                            ways to combine technology and design.
+                            I'm developing my skills in HTML, CSS,
+                            JavaScript, and Python while exploring
+                            creative ways to combine technology and design.
                         </p>
 
                         <p>
-                            I enjoy learning, building projects, solving
-                            problems, and connecting with others in the tech
-                            community. My goal is to create useful digital
-                            experiences and continue growing as a developer.
+                            I enjoy learning, experimenting with ideas,
+                            building personal projects, and connecting
+                            with others in the tech community.
                         </p>
 
-                        <a href="#contact" class="btn btn-primary">
-                            Get In Touch
+                        <p>
+                            My goal is to become a skilled developer
+                            and create useful, creative digital experiences.
+                        </p>
+
+                        <a href="#contact" class="text-link">
+                            Let's work toward something great
+                            <i class="fas fa-arrow-right"></i>
                         </a>
 
                     </div>
 
+
                     <div class="about-details reveal">
 
                         <div class="detail-card">
-                            <i class="fas fa-user-astronaut"></i>
+                            <div class="detail-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+
                             <div>
-                                <strong>Name</strong><br>
-                                <span>Emmanuel (Emmystick)</span>
+                                <small>NAME</small>
+                                <h4>Emmanuel (Emmystick)</h4>
                             </div>
                         </div>
 
                         <div class="detail-card">
-                            <i class="fas fa-laptop-code"></i>
+                            <div class="detail-icon">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+
                             <div>
-                                <strong>Profession</strong><br>
-                                <span>Aspiring Web Developer</span>
+                                <small>PROFESSION</small>
+                                <h4>Aspiring Web Developer</h4>
                             </div>
                         </div>
 
                         <div class="detail-card">
-                            <i class="fas fa-location-dot"></i>
+                            <div class="detail-icon">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+
                             <div>
-                                <strong>Location</strong><br>
-                                <span>Lagos State, Nigeria</span>
+                                <small>LOCATION</small>
+                                <h4>Lagos State, Nigeria</h4>
                             </div>
                         </div>
 
                         <div class="detail-card">
-                            <i class="fas fa-lightbulb"></i>
-                 
+                            <div class="detail-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+
+                            <div>
+                                <small>LEARNING PLATFORM</small>
+                                <h4>FreeCodeCamp</h4>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SKILLS SECTION -->
+        <section class="section skills-section" id="skills">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <p class="section-label">WHAT I BRING</p>
+
+                    <h2 class="section-title">
+                        Skills & <span class="gradient-text">Interests.</span>
+                    </h2>
+
+                    <p class="section-description">
+                        Technical and creative skills I'm developing
+                        through practice, learning, and experience.
+                    </p>
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon html-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+
+                        <h3>HTML</h3>
+
+                        <p>
+                            Building structured web pages
+                            with meaningful and accessible markup.
+                        </p>
+
+                        <span class="skill-level">Web Structure</span>
+                    </div>
+
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon css-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+
+                        <h3>CSS</h3>
+
+                        <p>
+                            Creating attractive layouts,
+                            responsive designs, and visual styles.
+                        </p>
+
+                        <span class="skill-level">Web Styling</span>
+                    </div>
+
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon js-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+
+                        <h3>JavaScript</h3>
+
+                        <p>
+                            Learning to add interactivity
+                            and dynamic features to websites.
+                        </p>
+
+                        <span class="skill-level">Interactivity</span>
+                    </div>
+
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon python-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+
+                        <h3>Python</h3>
+
+                        <p>
+                            Developing programming fundamentals
+                            and logical problem-solving skills.
+                        </p>
+
+                        <span class="skill-level">Programming</span>
+                    </div>
+
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon ai-icon">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                        </div>
+
+                        <h3>AI Visual Creation</h3>
+
+                        <p>
+                            Exploring AI tools to create
+                            creative and engaging visual content.
+                        </p>
+
+                        <span class="skill-level">Digital Creativity</span>
+                    </div>
+
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon drum-icon">
+                            <i class="fas fa-drum"></i>
+                        </div>
+
+                        <h3>Drumming</h3>
+
+                        <p>
+                            Expressing creativity, rhythm,
+                            and passion through music.
+                        </p>
+
+                        <span class="skill-level">Music & Rhythm</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- PROJECTS SECTION -->
+        <section class="section projects-section" id="projects">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <p class="section-label">MY CREATIVE WORK</p>
+
+                    <h2 class="section-title">
+                        Featured <span class="gradient-text">Projects.</span>
+                    </h2>
+
+                    <p class="section-description">
+                        A few projects from my learning journey.
+                        Each one helps me develop my skills and creativity.
+                    </p>
+                </div>
+
+
+                <div class="projects-grid">
+
+                    <!-- PROJECT ONE -->
+                    <article class="project-card reveal">
+
+                        <div class="project-preview google-preview">
+                            <div class="preview-top">
+                                <span></span><span></span><span></span>
+                            </div>
+
+                            <div class="google-content">
+                                <h3>Google</h3>
+                                <div class="fake-search">
+                                    <i class="fas fa-search"></i>
+                                    <span>Search the web...</span>
+                                </div>
+
+                                <div class="fake-buttons">
+                                    <span>Google Search</span>
+                                    <span>I'm Feeling Lucky</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-info">
+
+                            <div class="project-meta">
+                                <span>01 / WEB DEVELOPMENT</span>
+                                <span class="project-status">Practice</span>
+                            </div>
+
+                            <h3>Google Clone Project</h3>
+
+                            <p>
+                                A beginner project inspired by Google's
+                                homepage, created to practice HTML,
+                                CSS, and layout design.
+                            </p>
+
+                            <div class="project-tech">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                            </div>
+
+                            <a href="https://github.com/emmystick785-gif"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="project-link">
+                                Explore GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT TWO -->
+                    <article class="project-card reveal">
+
+                        <div class="project-preview profile-preview">
+                            <div class="mini-browser">
+                                <div class="mini-browser-top">
+                                    <span></span><span></span><span></span>
+                                </div>
+
+                                <div class="mini-profile">
+                                    <div class="mini-avatar">ES</div>
+                                    <div class="mini-line long"></div>
+                                    <div class="mini-line short"></div>
+                                    <div class="mini-blocks">
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-info">
+
+                            <div class="project-meta">
+                                <span>02 / PERSONAL WEBSITE</span>
+                                <span class="project-status">Practice</span>
+                            </div>
+
+                            <h3>Personal Profile Web Page</h3>
+
+                            <p>
+                                A personal webpage introducing my
+                                background, interests, skills,
+                                and contact information.
+                            </p>
+
+                            <div class="project-tech">
+                                <span>HTML</span>
+                            </div>
+
+                            <a href="https://github.com/emmystick785-gif"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="project-link">
+                                Explore GitHub <i class="fas fa-arrow-right"></i>
+                            </a>
+
+                        </div>
+                    </article>
+
+
+                    <!-- PROJECT THREE -->
+                    <article class="project-card reveal">
+
+                        <div class="project-preview recipe-preview">
+                            <i class="fas fa-utensils"></i>
+
+                            <div class="recipe-preview-text">
+                                <span>HOMEMADE RECIPE</span>
+                                <h3>Jollof Rice</h3>
+                                <p>Made with love & flavour</
+            
