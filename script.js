@@ -1,152 +1,246 @@
 
-/* =========================================
-   EMMYSTICK — PORTFOLIO INTERACTIONS
-   ========================================= */
+// ============================================
+// EMMYSTICK PORTFOLIO
+// Interactive JavaScript
+// ============================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // MOBILE NAVIGATION
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
-  const navItems = document.querySelectorAll(".nav-link");
+    // ---------- ELEMENTS ----------
 
-  function closeMenu() {
-    navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Open navigation");
-  }
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    const navItems = document.querySelectorAll(".nav-link");
 
-  menuToggle.addEventListener("click", () => {
-    const isOpen = navLinks.classList.toggle("open");
+    const themeToggle = document.getElementById("theme-toggle");
+    const backToTop = document.getElementById("back-to-top");
 
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen ? "Close navigation" : "Open navigation"
-    );
-  });
+    const yearElement = document.getElementById("year");
 
-  navItems.forEach(link => {
-    link.addEventListener("click", closeMenu);
-  });
 
-  // CLOSE MENU WHEN CLICKING OUTSIDE
-  document.addEventListener("click", event => {
-    if (
-      !navLinks.contains(event.target) &&
-      !menuToggle.contains(event.target)
-    ) {
-      closeMenu();
+    // ---------- CURRENT YEAR ----------
+
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
     }
-  });
 
-  // UPDATE FOOTER YEAR
-  const year = document.getElementById("year");
 
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
+    // ---------- MOBILE NAVIGATION ----------
 
-  // SCROLL REVEAL ANIMATIONS
-  const revealElements = document.querySelectorAll(".reveal");
+    function closeMenu() {
+        navLinks.classList.remove("open");
+        document.body.classList.remove("menu-open");
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries, observerInstance) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observerInstance.unobserve(entry.target);
-          }
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+
+    function openMenu() {
+        navLinks.classList.add("open");
+        document.body.classList.add("menu-open");
+
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close navigation menu");
+
+        menuToggle.innerHTML = '<i class="fas fa-xmark"></i>';
+    }
+
+    menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.contains("open");
+
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+
+    // Close menu after selecting a section
+
+    navItems.forEach((link) => {
+        link.addEventListener("click", () => {
+            closeMenu();
         });
-      },
-      {
-        threshold: 0.12
-      }
+    });
+
+
+    // Close menu when tapping outside it
+
+    document.addEventListener("click", (event) => {
+        const clickedInsideMenu = navLinks.contains(event.target);
+        const clickedToggle = menuToggle.contains(event.target);
+
+        if (
+            navLinks.classList.contains("open") &&
+            !clickedInsideMenu &&
+            !clickedToggle
+        ) {
+            closeMenu();
+        }
+    });
+
+
+    // Reset mobile menu when returning to desktop
+
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 760) {
+            closeMenu();
+        }
+    });
+
+
+    // ---------- DARK / LIGHT THEME ----------
+
+    const savedTheme = localStorage.getItem("emmystick-theme");
+
+    if (savedTheme === "light") {
+        document.body.classList.add("light-theme");
+    }
+
+    function updateThemeIcon() {
+        const isLight = document.body.classList.contains("light-theme");
+
+        themeToggle.innerHTML = isLight
+            ? '<i class="fas fa-sun"></i>'
+            : '<i class="fas fa-moon"></i>';
+
+        themeToggle.setAttribute(
+            "aria-label",
+            isLight ? "Switch to dark theme" : "Switch to light theme"
+        );
+    }
+
+    updateThemeIcon();
+
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("light-theme");
+
+        const isLight = document.body.classList.contains("light-theme");
+
+        localStorage.setItem(
+            "emmystick-theme",
+            isLight ? "light" : "dark"
+        );
+
+        updateThemeIcon();
+    });
+
+
+    // ---------- ACTIVE NAVIGATION ----------
+
+    const sections = document.querySelectorAll("main section[id]");
+
+    function updateActiveLink() {
+
+        let currentSection = "home";
+
+        sections.forEach((section) => {
+
+            const sectionTop = section.offsetTop - 150;
+            const sectionBottom = sectionTop + section.offsetHeight;
+
+            if (
+                window.scrollY >= sectionTop &&
+                window.scrollY < sectionBottom
+            ) {
+                currentSection = section.id;
+            }
+        });
+
+        navItems.forEach((link) => {
+
+            const isActive =
+                link.getAttribute("href") === `#${currentSection}`;
+
+            link.classList.toggle("active", isActive);
+        });
+    }
+
+
+    // ---------- BACK TO TOP ----------
+
+    function handleScroll() {
+
+        updateActiveLink();
+
+        if (window.scrollY > 450) {
+            backToTop.classList.add("show");
+        } else {
+            backToTop.classList.remove("show");
+        }
+    }
+
+    window.addEventListener("scroll", handleScroll, {
+        passive: true
+    });
+
+    backToTop.addEventListener("click", () => {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+
+
+    // ---------- SCROLL REVEAL ANIMATIONS ----------
+
+    const revealElements = document.querySelectorAll(
+        ".section-heading, .about-card, .skill-card, " +
+        ".project-card, .contact-wrapper"
     );
 
-    revealElements.forEach(element => {
-      observer.observe(element);
+    // Add animation styles only when JavaScript is available
+
+    document.body.classList.add("js-ready");
+
+    revealElements.forEach((element) => {
+        element.classList.add("reveal");
     });
 
-  } else {
-    revealElements.forEach(element => {
-      element.classList.add("visible");
-    });
-  }
+    if ("IntersectionObserver" in window) {
 
-  // BACK TO TOP BUTTON
-  const backToTop = document.getElementById("backToTop");
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 450) {
-      backToTop.classList.add("show");
+                entries.forEach((entry) => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        revealElements.forEach((element) => {
+            revealObserver.observe(element);
+        });
+
     } else {
-      backToTop.classList.remove("show");
-    }
-  }, { passive: true });
 
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
+        // Fallback for browsers without IntersectionObserver
 
-  // ACTIVE NAVIGATION LINK
-  const sections = document.querySelectorAll("main section[id]");
-
-  if ("IntersectionObserver" in window) {
-    const sectionObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const currentId = entry.target.id;
-
-            navItems.forEach(link => {
-              const isActive =
-                link.getAttribute("href") === `#${currentId}`;
-
-              link.classList.toggle("active", isActive);
-            });
-          }
+        revealElements.forEach((element) => {
+            element.classList.add("visible");
         });
-      },
-      {
-        rootMargin: "-25% 0px -60% 0px"
-      }
-    );
+    }
 
-    sections.forEach(section => {
-      sectionObserver.observe(section);
-    });
-  }
 
-  // PROFILE IMAGE FALLBACK
-  const profileImage = document.querySelector(".profile-image");
+    // ---------- INITIALIZE ----------
 
-  profileImage.addEventListener("error", () => {
-    profileImage.style.display = "none";
-
-    const frame = document.querySelector(".image-frame");
-
-    frame.style.minHeight = "300px";
-    frame.style.display = "flex";
-    frame.style.flexDirection = "column";
-    frame.style.justifyContent = "center";
-    frame.style.alignItems = "center";
-
-    const message = document.createElement("p");
-
-    message.textContent =
-      "Add your profile picture to the repository";
-
-    message.style.color = "#929bb0";
-    message.style.padding = "20px";
-    message.style.textAlign = "center";
-
-    frame.appendChild(message);
-  });
+    handleScroll();
 
 });
-     
+
+ 
