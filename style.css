@@ -1326,4 +1326,109 @@ button {
 }
 
 /* ---------- END OF STYLESHEET ---------- */
+/* =========================================
+   CONTACT FORM — PROFESSIONAL STYLING
+========================================= */
+
+#contact form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 28px;
+    background: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    box-sizing: border-box;
+}
+
+/* Form labels */
+#contact form label {
+    display: block;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+}
+
+/* Input fields and message box */
+#contact form input,
+#contact form textarea {
+    display: block;
+    width: 100%;
+    padding: 14px 16px;
+    margin-top: 8px;
+    background: #080f1e;
+    color: #f8fafc;
+    border: 1px solid #263449;
+    border-radius: 8px;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* Placeholder text */
+#contact form input::placeholder,
+#contact form textarea::placeholder {
+    color: #64748b;
+}
+
+/* Focus effect */
+#contact form input:focus,
+#contact form textarea:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.12);
+}
+
+/* Message box */
+#contact form textarea {
+    min-height: 150px;
+    resize: vertical;
+    line-height: 1.7;
+}
+
+/* Send Message button */
+#contact form button,
+#contact form input[type="submit"] {
+    width: fit-content;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+/* Button hover */
+#contact form button:hover,
+#contact form input[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+}
+
+/* Contact form responsive layout */
+@media (max-width: 768px) {
+    #contact form {
+        padding: 20px;
+    }
+
+    #contact form button,
+    #contact form input[type="submit"] {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth !important;
+}
     
