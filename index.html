@@ -5,637 +5,476 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Welcome to Emmystick's personal portfolio. Aspiring Web Developer, AI Visual Creator and Drummer.">
+    <meta name="theme-color" content="#080b10">
+    <meta name="description" content="The personal portfolio of Emmystick — aspiring web developer, AI visual creator, and drummer.">
 
-    <meta name="author" content="Emmystick">
-
-    <title>EMMYSTICK | Personal Portfolio</title>
+    <title>Emmystick® | Developer & Creative</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- CSS FILE -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- JavaScript FILE -->
+    <!-- JavaScript -->
     <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <!-- ================= PRELOADER ================= -->
-    <div class="preloader" id="preloader">
-        <div class="loader"></div>
-        <p>EMMYSTICK</p>
+    <!-- PAGE LOADER -->
+    <div class="page-loader" id="pageLoader">
+        <span class="loader-logo">E<span>.</span></span>
     </div>
 
-    <!-- ================= HEADER ================= -->
+    <!-- HEADER -->
     <header class="header" id="header">
-
         <nav class="navbar container">
 
             <a href="#home" class="logo">
-                EMMY<span>STICK</span><span class="logo-dot">.</span>
+                EMMYSTICK<span>®</span>
             </a>
 
             <button class="menu-toggle"
-                    id="menu-toggle"
-                    aria-label="Open navigation menu"
+                    id="menuToggle"
+                    aria-label="Open navigation"
                     aria-expanded="false"
-                    aria-controls="nav-menu">
-
+                    aria-controls="navLinks">
                 <span></span>
                 <span></span>
-                <span></span>
-
             </button>
 
-            <ul class="nav-menu" id="nav-menu">
-
-                <li><a href="#home" class="nav-link active">Home</a></li>
-
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-
-                <li>
-                    <a href="#contact" class="nav-cta">
-                        Let's Talk <span>↗</span>
-                    </a>
-                </li>
-
+                <li><a href="#contact" class="nav-link nav-contact">Let's Talk <span>↗</span></a></li>
             </ul>
 
         </nav>
-
     </header>
 
-
-    <!-- ================= MAIN CONTENT ================= -->
     <main>
 
-        <!-- ================= HERO SECTION ================= -->
+        <!-- HERO SECTION -->
         <section class="hero section" id="home">
+            <div class="hero-glow"></div>
 
-            <div class="container hero-container">
+            <div class="container hero-grid">
 
-                <div class="hero-content">
+                <div class="hero-content reveal">
 
                     <div class="availability">
                         <span class="status-dot"></span>
-                        <span>Learning, Building & Growing</span>
+                        LEARNING · BUILDING · GROWING
                     </div>
 
-                    <p class="hero-greeting">HELLO, I'M</p>
+                    <p class="eyebrow">HELLO, I'M EMMANUEL</p>
 
-                    <h1 class="hero-title">
-                        Boyede Emmanuel
-                        <span class="gradient-text">Oluwajumiloju</span>
+                    <h1>
+                        Creating digital
+                        <span class="gradient-text">experiences</span>
+                        with purpose.
                     </h1>
 
-                    <h2 class="hero-subtitle">
-                        Aspiring Web Developer
-                        <span class="divider-line">|</span>
-                        <span id="typing-text">AI Visual Creator</span>
-                    </h2>
-
                     <p class="hero-description">
-                        I'm Emmanuel, also known as Emmystick.
-                        I'm an aspiring web developer, AI visual
-                        creator and drummer passionate about
-                        technology, creativity and continuous learning.
-                        I'm learning, building projects and growing
-                        one step at a time.
+                        Aspiring Web Developer, AI Visual Creator &
+                        Drummer. I'm passionate about technology,
+                        creativity, and turning ideas into meaningful
+                        digital experiences.
                     </p>
 
                     <div class="hero-buttons">
-
                         <a href="#projects" class="btn btn-primary">
                             Explore My Work <span>↗</span>
                         </a>
 
-                        <a href="#contact" class="btn btn-outline">
+                        <a href="#contact" class="btn btn-secondary">
                             Get In Touch
                         </a>
-
                     </div>
 
                     <div class="hero-socials">
+                        <span>LET'S CONNECT</span>
+                        <span class="social-line"></span>
 
-                        <span>CONNECT WITH ME</span>
+                        <a href="mailto:emmystick785@gmail.com"
+                           aria-label="Email Emmanuel">Email ↗</a>
 
                         <a href="https://github.com/"
                            target="_blank"
-                           rel="noopener noreferrer"
-                           aria-label="GitHub">
-                            GitHub ↗
-                        </a>
-
-                        <a href="https://www.linkedin.com/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           aria-label="LinkedIn">
-                            LinkedIn ↗
-                        </a>
-
-                        <a href="https://www.instagram.com/"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           aria-label="Instagram">
-                            Instagram ↗
-                        </a>
-
+                           rel="noopener noreferrer">GitHub ↗</a>
                     </div>
 
                 </div>
 
+                <div class="hero-visual reveal">
 
-                <!-- PROFILE IMAGE -->
-                <div class="hero-visual">
-
-                    <div class="image-glow"></div>
-
-                    <div class="profile-card">
-
-                        <div class="profile-card-top">
-                            <span class="card-indicator"></span>
-                            <span>MY CREATIVE SPACE</span>
+                    <div class="image-frame">
+                        <div class="image-top-label">
+                            <span>CREATIVE MINDSET</span>
+                            <span>001 / 2026</span>
                         </div>
 
-                        <div class="profile-image-wrapper">
+                        <img
+                            src="00000000f67081f49aa7787dcb3a670c.jpg"
+                            alt="Emmanuel — Emmystick"
+                            class="profile-image"
+                            fetchpriority="high"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        >
 
-                            <img
-                                src="00000000f67081f49aa7787dcb3a670c.jpg"
-                                alt="Emmanuel Emmystick"
-                                class="profile-image"
-                                id="profile-image"
-                            >
-
+                        <div class="image-fallback">
+                            <span>E.</span>
+                            <p>Add your profile picture to the repository</p>
                         </div>
 
-                        <div class="profile-card-bottom">
-
-                            <div>
-                                <h3>Emmystick</h3>
-                                <p>Developer in Progress 🚀</p>
-                            </div>
-
-                            <div class="profile-badge">✦</div>
-
+                        <div class="image-caption">
+                            <span class="caption-dot"></span>
+                            <span>EMMYSTICK® — DIGITAL CREATIVE</span>
                         </div>
-
                     </div>
 
-                    <div class="floating-card floating-code">
-                        <span class="floating-icon">&lt;/&gt;</span>
+                    <div class="floating-card">
+                        <span class="floating-icon">✳</span>
                         <div>
-                            <strong>Web Development</strong>
-                            <small>HTML · CSS · JavaScript</small>
+                            <strong>Curious by nature.</strong>
+                            <p>Driven by creativity.</p>
                         </div>
                     </div>
 
-                    <div class="floating-card floating-creative">
-                        <span class="floating-icon">✦</span>
-                        <div>
-                            <strong>Creative Mind</strong>
-                            <small>Design · Music · AI</small>
-                        </div>
-                    </div>
-
-                    <div class="hero-decoration decoration-one"></div>
-                    <div class="hero-decoration decoration-two"></div>
+                    <div class="hero-index">LAGOS, NIGERIA · NG</div>
 
                 </div>
 
             </div>
 
-            <div class="hero-scroll">
-                <span></span>
-                Scroll to discover
+            <div class="container hero-bottom">
+                <span>SCROLL TO DISCOVER</span>
+                <span class="scroll-line"></span>
+                <span>01 — 04</span>
             </div>
-
         </section>
 
+        <!-- MARQUEE -->
+        <div class="marquee">
+            <div class="marquee-track">
+                <span>WEB DEVELOPMENT ✳</span>
+                <span>AI VISUAL CREATION ✳</span>
+                <span>CREATIVE THINKING ✳</span>
+                <span>MUSIC & DRUMMING ✳</span>
+                <span>WEB DEVELOPMENT ✳</span>
+                <span>AI VISUAL CREATION ✳</span>
+                <span>CREATIVE THINKING ✳</span>
+                <span>MUSIC & DRUMMING ✳</span>
+            </div>
+        </div>
 
-        <!-- ================= ABOUT SECTION ================= -->
-        <section class="about section" id="about">
-
+        <!-- ABOUT SECTION -->
+        <section class="section about-section" id="about">
             <div class="container">
 
-                <div class="section-heading">
-
-                    <span class="section-label">GET TO KNOW ME</span>
-
-                    <h2>
-                        A Little About <span class="gradient-text">Me</span>
-                    </h2>
-
-                    <p>
-                        The person behind the code, creativity and rhythm.
-                    </p>
-
+                <div class="section-heading reveal">
+                    <span class="section-number">01 / ABOUT</span>
+                    <h2>A little about <span class="gradient-text">me.</span></h2>
                 </div>
 
                 <div class="about-grid">
 
-                    <div class="about-content">
+                    <div class="about-intro reveal">
+                        <p class="large-text">
+                            I'm Emmanuel, also known as
+                            <span class="accent-text">Emmystick.</span>
+                            A creative mind exploring the intersection
+                            of technology, design, and music.
+                        </p>
+                    </div>
 
-                        <h3>
-                            I'm Emmanuel.
-                            <span class="gradient-text">Call me Emmystick.</span>
-                        </h3>
-
+                    <div class="about-details reveal">
                         <p>
-                            I'm a young creative from Lagos, Nigeria,
-                            currently learning web development and
-                            exploring the world of technology.
+                            I'm currently building my foundation in web
+                            development, learning how to transform ideas
+                            into clean, functional, and engaging websites.
                         </p>
 
                         <p>
-                            My journey is about learning new skills,
-                            creating meaningful projects and becoming
-                            better with every experience. I enjoy
-                            combining technology with creativity,
-                            whether through building websites,
-                            exploring AI visuals or playing drums.
+                            Beyond coding, I enjoy AI-powered visual
+                            creation and drumming. These interests inspire
+                            the way I approach creativity, learning, and
+                            problem-solving.
                         </p>
 
                         <p>
-                            I'm not claiming to know it all.
-                            I'm a beginner with a vision, a willingness
-                            to learn and a passion for what I do.
+                            I'm here to learn, build real projects,
+                            connect with other creatives, and keep growing
+                            one step at a time.
                         </p>
 
                         <a href="#contact" class="text-link">
-                            Let's connect <span>→</span>
+                            Let's create something meaningful <span>↗</span>
                         </a>
-
-                    </div>
-
-
-                    <div class="about-info">
-
-                        <div class="info-card">
-                            <span class="info-icon">⌘</span>
-                            <div>
-                                <h4>Web Development</h4>
-                                <p>Learning to build websites with code.</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card">
-                            <span class="info-icon">✦</span>
-                            <div>
-                                <h4>AI Visual Creation</h4>
-                                <p>Exploring creativity through AI visuals.</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card">
-                            <span class="info-icon">♫</span>
-                            <div>
-                                <h4>Drumming</h4>
-                                <p>Expressing creativity through music.</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card">
-                            <span class="info-icon">⌖</span>
-                            <div>
-                                <h4>Based In</h4>
-                                <p>Lagos State, Nigeria</p>
-                            </div>
-                        </div>
-
                     </div>
 
                 </div>
 
-            </div>
+                <div class="about-stats reveal">
+                    <div class="stat">
+                        <span class="stat-number">01</span>
+                        <span class="stat-label">CURIOUS MIND</span>
+                    </div>
 
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">ROOM TO GROW</span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">COMMITTED TO LEARNING</span>
+                    </div>
+                </div>
+
+            </div>
         </section>
 
-
-        <!-- ================= SKILLS SECTION ================= -->
-        <section class="skills section" id="skills">
-
+        <!-- SKILLS SECTION -->
+        <section class="section skills-section" id="skills">
             <div class="container">
 
-                <div class="section-heading">
-
-                    <span class="section-label">WHAT I'M LEARNING</span>
-
-                    <h2>
-                        My Creative <span class="gradient-text">Toolkit</span>
-                    </h2>
-
-                    <p>
+                <div class="section-heading reveal">
+                    <span class="section-number">02 / EXPERTISE IN PROGRESS</span>
+                    <h2>Things I'm <span class="gradient-text">building with.</span></h2>
+                    <p class="section-description">
                         Skills I'm developing through practice,
-                        projects and continuous learning.
+                        creativity, and hands-on projects.
                     </p>
-
                 </div>
 
                 <div class="skills-grid">
 
-                    <!-- HTML -->
-                    <div class="skill-card">
-
-                        <div class="skill-icon html-icon">5</div>
-
-                        <h3>HTML5</h3>
-
+                    <article class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <span class="skill-icon">&lt;/&gt;</span>
+                            <span class="skill-index">01</span>
+                        </div>
+                        <h3>HTML & CSS</h3>
                         <p>
-                            Building the structure and content
-                            of web pages.
+                            Building structured web pages and styling
+                            responsive, visually engaging interfaces.
                         </p>
+                        <span class="skill-tag">WEB DEVELOPMENT</span>
+                    </article>
 
-                        <span class="skill-status">Currently Learning</span>
-
-                    </div>
-
-
-                    <!-- CSS -->
-                    <div class="skill-card">
-
-                        <div class="skill-icon css-icon">3</div>
-
-                        <h3>CSS3</h3>
-
-                        <p>
-                            Styling websites with layouts,
-                            colors and responsive designs.
-                        </p>
-
-                        <span class="skill-status">Currently Learning</span>
-
-                    </div>
-
-
-                    <!-- JAVASCRIPT -->
-                    <div class="skill-card">
-
-                        <div class="skill-icon js-icon">JS</div>
-
+                    <article class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <span class="skill-icon">JS</span>
+                            <span class="skill-index">02</span>
+                        </div>
                         <h3>JavaScript</h3>
-
                         <p>
-                            Learning to make websites
-                            interactive and dynamic.
+                            Learning to bring websites to life with
+                            interactive features and dynamic behavior.
                         </p>
+                        <span class="skill-tag">IN PROGRESS</span>
+                    </article>
 
-                        <span class="skill-status">Currently Learning</span>
-
-                    </div>
-
-
-                    <!-- AI VISUALS -->
-                    <div class="skill-card">
-
-                        <div class="skill-icon ai-icon">✦</div>
-
+                    <article class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <span class="skill-icon">✳</span>
+                            <span class="skill-index">03</span>
+                        </div>
                         <h3>AI Visual Creation</h3>
-
                         <p>
-                            Exploring AI-powered visuals
-                            and digital creativity.
+                            Exploring AI-assisted creativity and
+                            visual storytelling through digital tools.
                         </p>
+                        <span class="skill-tag">DIGITAL CREATIVITY</span>
+                    </article>
 
-                        <span class="skill-status">Exploring</span>
-
-                    </div>
-
-
-                    <!-- DRUMMING -->
-                    <div class="skill-card">
-
-                        <div class="skill-icon music-icon">♫</div>
-
+                    <article class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <span class="skill-icon">♫</span>
+                            <span class="skill-index">04</span>
+                        </div>
                         <h3>Drumming</h3>
-
                         <p>
-                            Developing musical expression,
-                            rhythm and creativity.
+                            Expressing rhythm, creativity, and passion
+                            through music and percussion.
                         </p>
-
-                        <span class="skill-status">Creative Skill</span>
-
-                    </div>
-
-
-                    <!-- CONTINUOUS LEARNING -->
-                    <div class="skill-card">
-
-                        <div class="skill-icon learning-icon">↗</div>
-
-                        <h3>Continuous Learning</h3>
-
-                        <p>
-                            Growing through practice,
-                            curiosity and new challenges.
-                        </p>
-
-                        <span class="skill-status">Always Growing</span>
-
-                    </div>
+                        <span class="skill-tag">MUSIC</span>
+                    </article>
 
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- ================= PROJECTS SECTION ================= -->
-        <section class="projects section" id="projects">
-
+        <!-- PROJECTS SECTION -->
+        <section class="section projects-section" id="projects">
             <div class="container">
 
-                <div class="section-heading">
-
-                    <span class="section-label">MY WORK</span>
-
-                    <h2>
-                        Projects I'm <span class="gradient-text">Building</span>
-                    </h2>
-
-                    <p>
-                        A growing collection of my learning
-                        experiences and creative projects.
+                <div class="section-heading reveal">
+                    <span class="section-number">03 / SELECTED WORK</span>
+                    <h2>Ideas into <span class="gradient-text">reality.</span></h2>
+                    <p class="section-description">
+                        A growing collection of projects, experiments,
+                        and things I'm learning to build.
                     </p>
-
                 </div>
 
                 <div class="projects-grid">
 
-                    <!-- PROJECT 1 -->
-                    <article class="project-card">
-
-                        <div class="project-preview project-preview-one">
-
-                            <div class="browser-bar">
-                                <span></span>
-                                <span></span>
-                                <span></span>
+                    <article class="project-card reveal">
+                        <div class="project-preview google-preview">
+                            <span class="preview-label">01 / WEB PROJECT</span>
+                            <div class="google-word">
+                                <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
                             </div>
-
-                            <div class="project-mockup">
-                                <span class="mockup-code">&lt;/&gt;</span>
-                                <h3>My First Website</h3>
-                                <p>Learning by building.</p>
+                            <div class="google-search"></div>
+                            <div class="google-buttons">
+                                <span></span><span></span>
                             </div>
-
                         </div>
 
                         <div class="project-info">
-
-                            <span class="project-category">
-                                WEB DEVELOPMENT
-                            </span>
-
-                            <h3>Personal Portfolio</h3>
-
-                            <p>
-                                A personal website created to showcase
-                                my skills, journey and creative work.
-                            </p>
-
-                            <div class="project-tags">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
+                            <div class="project-meta">
+                                <span>HTML · CSS</span>
+                                <span>01</span>
                             </div>
 
-                            <a href="#contact" class="project-link">
-                                Portfolio Project <span>↗</span>
+                            <h3>Google Clone</h3>
+
+                            <p>
+                                A learning project inspired by Google's
+                                search homepage, created to practice
+                                layout, styling, and web fundamentals.
+                            </p>
+
+                            <a href="https://github.com/"
+                               target="_blank"
+                               rel="noopener noreferrer"
+                               class="project-link">
+                                Explore on GitHub <span>↗</span>
                             </a>
-
                         </div>
-
                     </article>
 
-
-                    <!-- PROJECT 2 -->
-                    <article class="project-card">
-
-                        <div class="project-preview project-preview-two">
-
-                            <div class="browser-bar">
-                                <span></span>
-                                <span></span>
-                                <span></span>
+                    <article class="project-card reveal">
+                        <div class="project-preview portfolio-preview">
+                            <span class="preview-label">02 / PERSONAL BRAND</span>
+                            <div class="portfolio-mockup">
+                                <span class="mockup-logo">E.</span>
+                                <span class="mockup-line"></span>
+                                <span class="mockup-title">CREATIVE<br>BY DESIGN.</span>
+                                <span class="mockup-button">EXPLORE ↗</span>
                             </div>
-
-                            <div class="project-mockup">
-                                <span class="mockup-code">✦</span>
-                                <h3>Creative Experiments</h3>
-                                <p>Ideas into visuals.</p>
-                            </div>
-
                         </div>
 
                         <div class="project-info">
-
-                            <span class="project-category">
-                                AI & CREATIVITY
-                            </span>
-
-                            <h3>AI Visual Experiments</h3>
-
-                            <p>
-                                A space for exploring AI-generated
-                                visuals and creative design ideas.
-                            </p>
-
-                            <div class="project-tags">
-                                <span>AI</span>
-                                <span>Visual Design</span>
-                                <span>Creativity</span>
+                            <div class="project-meta">
+                                <span>HTML · CSS · JS</span>
+                                <span>02</span>
                             </div>
 
-                            <a href="#contact" class="project-link">
-                                Creative Journey <span>↗</span>
+                            <h3>Emmystick Portfolio</h3>
+
+                            <p>
+                                My personal portfolio, designed to
+                                showcase my learning journey, creativity,
+                                projects, and growing digital skills.
+                            </p>
+
+                            <a href="#home" class="project-link">
+                                You're viewing it <span>↗</span>
                             </a>
-
                         </div>
-
                     </article>
 
                 </div>
 
-                <p class="projects-note">
-                    More projects will be added as I continue learning
-                    and building.
-                </p>
+                <div class="projects-note reveal">
+                    <span class="status-dot"></span>
+                    MORE PROJECTS COMING AS I KEEP BUILDING
+                </div>
 
             </div>
-
         </section>
 
-
-        <!-- ================= JOURNEY SECTION ================= -->
-        <section class="journey section" id="journey">
-
+        <!-- CONTACT SECTION -->
+        <section class="section contact-section" id="contact">
             <div class="container">
 
-                <div class="section-heading">
+                <div class="contact-box reveal">
 
-                    <span class="section-label">MY JOURNEY</span>
+                    <span class="section-number">04 / LET'S CONNECT</span>
 
                     <h2>
-                        Learning. Building.
-                        <span class="gradient-text">Growing.</span>
+                        Have an idea?
+                        <span class="gradient-text">Let's talk.</span>
                     </h2>
 
                     <p>
-                        Every expert starts somewhere.
-                        This is where my journey continues.
+                        Whether it's a project, a creative collaboration,
+                        or simply connecting with another person in tech,
+                        I'd love to hear from you.
                     </p>
 
-                </div>
+                    <a href="mailto:emmystick785@gmail.com"
+                       class="btn btn-primary contact-main-btn">
+                        Send Me an Email <span>↗</span>
+                    </a>
 
-                <div class="journey-card">
+                    <div class="contact-details">
 
-                    <div class="journey-line"></div>
+                        <a href="mailto:emmystick785@gmail.com"
+                           class="contact-item">
+                            <span class="contact-label">EMAIL</span>
+                            <span class="contact-value">emmystick785@gmail.com ↗</span>
+                        </a>
 
-                    <div class="journey-item">
+                        <a href="tel:+2348142566373"
+                           class="contact-item">
+                            <span class="contact-label">PHONE</span>
+                            <span class="contact-value">+234 814 256 6373 ↗</span>
+                        </a>
 
-                        <span class="journey-dot"></span>
-
-                        <div>
-                            <span class="journey-label">THE FOUNDATION</span>
-                            <h3>Learning Web Development</h3>
-                            <p>
-                                Building my foundation in HTML,
-                                CSS and JavaScript through FreeCodeCamp
-                                and hands-on practice.
-                            </p>
+                        <div class="contact-item">
+                            <span class="contact-label">LOCATION</span>
+                            <span class="contact-value">Lagos, Nigeria</span>
                         </div>
 
                     </div>
 
-                    <div class="journey-item">
+                </div>
+            </div>
+        </section>
 
-                        <span class="journey-dot"></span>
+    </main>
 
-                        <div>
-                            <span class="journey-label">THE BUILDING PHASE</span>
-                            <h3>Creating Real Projects</h3>
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Emmystick. All rights reserved.</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+
+            <a href="#home" class="logo">
+                EMMYSTICK<span>®</span>
+            </a>
+
+            <p>Learning. Building. Connecting.</p>
+
+            <a href="#home" class="back-to-top">
+                BACK TO TOP ↑
+            </a>
+
+            <div class="footer-bottom">
+                <span>© <span id="currentYear">2026</span> EMMYSTICK. ALL RIGHTS RESERVED.</span>
+                <span>DESIGNED WITH PURPOSE.</span>
+            </div>
+
+        </div>
     </footer>
-
-    <!-- JavaScript File -->
-    <script src="script.js"></script>
 
 </body>
 </html>
-                           
