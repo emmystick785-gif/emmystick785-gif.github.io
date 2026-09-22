@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#08090d">
+    <meta name="description" content="Welcome to Emmystick's creative portfolio — aspiring web developer, AI visual creator, and drummer. Explore my journey, projects, and creativity.">
+
+    <meta property="og:title" content="EMMYSTICK® | Creative Developer">
+    <meta property="og:description" content="Building digital experiences. Exploring creative technology.">
+    <meta property="og:type" content="website">
+
+    <title>EMMYSTICK® — Creative Developer & Digital Creator</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Website Icon -->
+    <link rel="icon" href="favicon.png" type="image/png">
+</head>
+
+<body>
+
+    <!-- PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="loader-content">
+            <span class="loader-logo">EMMY<span>STICK</span></span>
+            <div class="loader-line">
+                <div class="loader-progress"></div>
+            </div>
+            <p>PREPARING SOMETHING CREATIVE...</p>
+        </div>
+    </div>
+
+    <!-- BACKGROUND EFFECTS -->
+    <div class="site-background">
+        <div class="bg-glow bg-glow-one"></div>
+        <div class="bg-glow bg-glow-two"></div>
+        <div class="grid-overlay"></div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header class="header" id="header">
+        <nav class="navbar container">
+
+            <a href="#home" class="logo" aria-label="Emmystick home">
+                EMMY<span>STICK</span><sup>®</sup>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
+
+                <a href="#contact" class="nav-cta">
+                    Let's Talk <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+            </div>
+
+            <button class="menu-toggle" id="menuToggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                    aria-controls="navLinks">
+                <span></span>
+                <span></span>
+            </button>
+
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero section" id="home">
+            <div class="container hero-container">
+
+                <div class="hero-content reveal">
+
+                    <div class="hero-status">
+                        <span class="status-dot"></span>
+                        <span>LEARNING · BUILDING · CREATING</span>
+                    </div>
+
+                    <p class="hero-eyebrow">
+                        HELLO, WORLD! I'M
+                    </p>
+
+                    <h1 class="hero-title">
+                        Emmanuel
+                        <span class="gradient-text">Oluwajumiloju</span>
+                        <span class="hero-outline">AKA EMMYSTICK<span class="accent">®</span></span>
+                    </h1>
+
+                    <div class="hero-role">
+                        <span class="role-prefix">I'M AN</span>
+                        <span class="typing-text" id="typingText">
+                            Aspiring Web Developer
+                        </span>
+                        <span class="typing-cursor">|</span>
+                    </div>
+
+                    <p class="hero-description">
+                        Exploring the intersection of code, creativity, and technology.
+                        I'm learning to build meaningful digital experiences,
+                        creating AI-powered visuals, and expressing creativity
+                        through music.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            Explore My Work
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
+                        <a href="#contact" class="btn btn-secondary">
+                            Let's Connect
+                            <i class="fa-regular fa-paper-plane"></i>
+                        </a>
+                    </div>
+
+                    <div class="hero-socials">
+                        <span class="social-label">CONNECT WITH ME</span>
+
+                        <a href="mailto:emmystick785@gmail.com"
+                           aria-label="Email Emmystick"
+                           title="Email">
+                            <i class="fa-regular fa-envelope"></i>
+                        </a>
+
+                        <a href="https://github.com/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="GitHub"
+                           title="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+                        <a href="https://www.instagram.com/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="Instagram"
+                           title="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- HERO VISUAL -->
+                <div class="hero-visual reveal">
+
+                    <div class="hero-visual-glow"></div>
+
+                    <div class="visual-top-label">
+                        <span>CREATIVE DEVELOPER</span>
+                        <span>EST. 2026</span>
+                    </div>
+
+                    <div class="hero-artwork">
+
+                        <div class="orbit orbit-one"></div>
+                        <div class="orbit orbit-two"></div>
+
+                        <div class="hero-monogram">
+                            <span class="monogram-e">E</span>
+                            <span class="monogram-dot">.</span>
+                        </div>
+
+                        <div class="floating-card code-card">
+                            <div class="card-window-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+
+                            <div class="code-lines">
+                                <p><span class="code-purple">const</span> creator = {</p>
+                                <p>&nbsp;&nbsp;name: <span class="code-green">'Emmystick'</span>,</p>
+                                <p>&nbsp;&nbsp;passion: <span class="code-green">'Building'</span>,</p>
+                                <p>&nbsp;&nbsp;mode: <span class="code-green">'Learning'</span></p>
+                                <p>};</p>
+                            </div>
+                        </div>
+
+                        <div class="floating-card visual-card">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span>CREATIVITY<br>IN PROGRESS</span>
+                        </div>
+
+                        <div class="floating-card music-card">
+                            <i class="fa-solid fa-drum"></i>
+                            <span>RHYTHM<br>& CODE</span>
+                        </div>
+
+                    </div>
+
+                    <div class="visual-bottom-label">
+                        <span>DESIGNING MY FUTURE</span>
+                        <span class="visual-index">001 — 026</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="#about" class="scroll-indicator">
+                <span>SCROLL TO EXPLORE</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </a>
+        </section>
+
+        <!-- MARQUEE -->
+        <section class="marquee-section" aria-label="Areas of creativity">
+            <div class="marquee-track">
+                <div class="marquee-content">
+                    <span>WEB DEVELOPMENT</span><i class="fa-solid fa-asterisk"></i>
+                    <span>CREATIVE TECHNOLOGY</span><i class="fa-solid fa-asterisk"></i>
+                    <span>AI VISUALS</span><i class="fa-solid fa-asterisk"></i>
+                    <span>DIGITAL EXPERIENCES</span><i class="fa-solid fa-asterisk"></i>
+                    <span>WEB DEVELOPMENT</span><i class="fa-solid fa-asterisk"></i>
+                    <span>CREATIVE TECHNOLOGY</span><i class="fa-solid fa-asterisk"></i>
+                    <span>AI VISUALS</span><i class="fa-solid fa-asterisk"></i>
+                    <span>DIGITAL EXPERIENCES</span><i class="fa-solid fa-asterisk"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section class="about section" id="about">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-tag">01 / ABOUT ME</span>
+                    <h2>Not just learning code.<br>
+                        <span class="gradient-text">Building a vision.</span>
+                    </h2>
+                </div>
+
+                <div class="about-grid">
+
+                    <div class="about-main reveal">
+                        <span class="about-intro">THE PERSON BEHIND THE PIXELS</span>
+
+                        <h3>
+                            A curious mind with a passion for
+                            <span class="text-accent">technology</span>
+                            and creativity.
+                        </h3>
+
+                        <p>
+                            I'm Emmanuel, also known as Emmystick — an aspiring
+                            web developer, AI visual creator, and drummer
+                            based in Lagos, Nigeria.
+                        </p>
+
+                        <p>
+                            I'm currently growing my web development skills,
+                            exploring new technologies, and turning ideas
+                            into real projects. I believe every expert
+                            starts as a beginner, and I'm committed to
+                            learning, improving, and building one project
+                            at a time.
+                        </p>
+
+                        <p>
+                            Beyond the screen, music keeps my creativity
+                            alive. My goal is to combine technical skills
+                            with imagination to create digital experiences
+                            that are useful, engaging, and memorable.
+                        </p>
+
+                        <a href="#contact" class="text-link">
+                            LET'S BUILD SOMETHING
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="about-side reveal">
+
+                        <div class="about-info-card">
+                            <span class="info-number">01</span>
+                            <div>
+                                <h4>Always Learning</h4>
+                                <p>Growing through practice, curiosity, and consistency.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-info-card">
+                            <span class="info-number">02</span>
+                            <div>
+                                <h4>Creative Thinking</h4>
+                                <p>Combining technology, design, and imagination.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-info-card">
+                            <span class="info-number">03</span>
+                            <div>
+                                <h4>Purpose-Driven</h4>
+                                <p>Building skills that can create value for people.</p>
+                            </div>
+                        </div>
+
+                        <div class="about-quote">
+                            <i class="fa-solid fa-quote-left"></i>
+                            <p>
+                                Every line of code is another step
+                                toward the vision.
+                            </p>
+                            <span>— EMMYSTICK</span>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section class="skills section" id="skills">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-tag">02 / MY TOOLKIT</span>
+                    <h2>Skills I'm building.<br>
+                        <span class="gradient-text">Ideas I'm exploring.</span>
+                    </h2>
+                    <p>
+                        A growing toolkit shaped by hands-on practice,
+                        curiosity, and creative exploration.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <div class="skill-icon html-icon">
+                                <i class="fa-brands fa-html5"></i>
+                            </div>
+                            <span class="skill-index">01</span>
+                        </div>
+                        <h3>HTML5</h3>
+                        <p>Building structured, accessible foundations for the web.</p>
+                        <div class="skill-level">
+                            <span>LEARNING & PRACTICING</span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <div class="skill-icon css-icon">
+                                <i class="fa-brands fa-css3-alt"></i>
+                            </div>
+                            <span class="skill-index">02</span>
+                        </div>
+                        <h3>CSS3</h3>
+                        <p>Exploring layouts, responsive design, and visual styling.</p>
+                        <div class="skill-level">
+                            <span>LEARNING & PRACTICING</span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <div class="skill-icon js-icon">
+                                <i class="fa-brands fa-js"></i>
+                            </div>
+                            <span class="skill-index">03</span>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>Learning to bring websites to life with interactivity.</p>
+                        <div class="skill-level">
+                            <span>LEARNING & PRACTICING</span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <div class="skill-icon python-icon">
+                                <i class="fa-brands fa-python"></i>
+                            </div>
+                            <span class="skill-index">04</span>
+                        </div>
+                        <h3>Python</h3>
+                        <p>Exploring programming fundamentals and problem-solving.</p>
+                        <div class="skill-level">
+                            <span>EXPLORING</span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <div class="skill-icon ai-icon">
+                                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            </div>
+                            <span class="skill-index">05</span>
+                        </div>
+                        <h3>AI Visual Creation</h3>
+                        <p>Experimenting with AI-assisted visuals and creative concepts.</p>
+                        <div class="skill-level">
+                            <span>CREATIVE EXPLORATION</span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-card-top">
+                            <div class="skill-icon drum-icon">
+                                <i class="fa-solid fa-drum"></i>
+                            </div>
+                            <span class="skill-index">06</span>
+                        </div>
+                        <h3>Drumming</h3>
+                        <p>Expressing creativity through rhythm, timing, and music.</p>
+                        <div class="skill-level">
+                            <span>MUSIC & CREATIVITY</span>
+                            <span class="skill-dot"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section class="projects section" id="projects">
+            <div class="container">
+
+                <div class="section-heading reveal">
+                    <span class="section-tag">03 / SELECTED WORK</span>
+                    <h2>Ideas becoming<br>
+                        <span class="gradient-text">real experiences.</span>
+                    </h2>
+                    <p>
+                        A look at my learning journey through projects,
+                        experiments, and creative development.
+                    </p>
+                </div>
+
+                <div class="projects-grid">
+
+                    <!-- PROJECT 1 -->
+                    <article class="project-card project-featured reveal">
+
+                        <div class="project-visual project-visual-one">
+                            <div class="project-browser">
+                                <div class="browser-bar">
+                                    <span></span><span></span><span></span>
+                                    <p>emmystick-portfolio</p>
+                                </div>
+
+                                <div class="browser-content">
+                                    <span class="browser-mini-label">CREATIVE DEVELOPER</span>
+                                    <h3>Building<br>my digital identity<span>.</span></h3>
+                                    <div class="browser-mini-line"></div>
+                                    <div class="browser-mini-blocks">
+                                        <span></span><span></span><span></span>
+      </div>
