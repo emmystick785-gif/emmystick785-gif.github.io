@@ -1,455 +1,182 @@
-/* =========================================
-   EMMYSTICK PORTFOLIO
-   Interactive JavaScript
-========================================= */
 
-"use strict";
+// =====================================
+// EMMYSTICK PROFESSIONAL PORTFOLIO
+// Interactive JavaScript
+// =====================================
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    // =====================================
-    // PAGE LOADER
-    // =====================================
+    // MOBILE NAVIGATION MENU
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-    const pageLoader = document.getElementById("pageLoader");
+    if (menuToggle && navLinks) {
 
-    function hideLoader() {
-        if (pageLoader) {
-            pageLoader.classList.add("loaded");
-        }
-    }
+        menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
 
-    window.addEventListener("load", hideLoader);
+            const isOpen = navLinks.classList.contains("active");
 
-    // Fallback in case some external assets load slowly
-    setTimeout(hideLoader, 2500);
-
-
-    // =====================================
-    // MOBILE NAVIGATION
-    // =====================================
-
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
-    const navLinks = document.querySelectorAll(".nav-link");
-    const menuIcon = menuToggle?.querySelector("i");
-
-    function openMenu() {
-        navMenu.classList.add("active");
-        menuToggle.setAttribute("aria-expanded", "true");
-        menuToggle.setAttribute("aria-label", "Close navigation menu");
-        document.body.classList.add("menu-open");
-
-        if (menuIcon) {
-            menuIcon.classList.replace("fa-bars", "fa-xmark");
-        }
-    }
-
-    function closeMenu() {
-        navMenu.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.setAttribute("aria-label", "Open navigation menu");
-        document.body.classList.remove("menu-open");
-
-        if (menuIcon) {
-            menuIcon.classList.replace("fa-xmark", "fa-bars");
-        }
-    }
-
-    menuToggle?.addEventListener("click", () => {
-        const isOpen = navMenu.classList.contains("active");
-
-        if (isOpen) {
-            closeMenu();
-        } else {
-            openMenu();
-        }
-    });
-
-    // Close menu when a navigation link is clicked
-    navLinks.forEach(link => {
-        link.addEventListener("click", closeMenu);
-    });
-
-    // Close menu when clicking outside it
-    document.addEventListener("click", event => {
-        if (
-            navMenu?.classList.contains("active") &&
-            !navMenu.contains(event.target) &&
-            !menuToggle.contains(event.target)
-        ) {
-            closeMenu();
-        }
-    });
-
-    // Close menu with Escape key
-    document.addEventListener("keydown", event => {
-        if (event.key === "Escape") {
-            closeMenu();
-        }
-    });
-
-    // Close mobile navigation when returning to desktop
-    window.addEventListener("resize", () => {
-        if (window.innerWidth > 760) {
-            closeMenu();
-        }
-    });
-
-
-    // =====================================
-    // STICKY HEADER
-    // =====================================
-
-    const header = document.getElementById("header");
-
-    function updateHeader() {
-        if (window.scrollY > 40) {
-            header?.classList.add("scrolled");
-        } else {
-            header?.classList.remove("scrolled");
-        }
-    }
-
-    window.addEventListener("scroll", updateHeader, {
-        passive: true
-    });
-
-    updateHeader();
-
-
-    // =====================================
-    // SCROLL PROGRESS BAR
-    // =====================================
-
-    const scrollProgress = document.getElementById("scrollProgress");
-
-    function updateScrollProgress() {
-        const scrollableHeight =
-            document.documentElement.scrollHeight - window.innerHeight;
-
-        const progress = scrollableHeight > 0
-            ? (window.scrollY / scrollableHeight) * 100
-            : 0;
-
-        if (scrollProgress) {
-            scrollProgress.style.width = `${progress}%`;
-        }
-    }
-
-    window.addEventListener("scroll", updateScrollProgress, {
-        passive: true
-    });
-
-    updateScrollProgress();
-
-
-    // =====================================
-    // TYPING ANIMATION
-    // =====================================
-
-    const typingText = document.getElementById("typingText");
-
-    const roles = [
-        "Aspiring Web Developer",
-        "AI Visual Creator",
-        "Creative Thinker",
-        "Drummer"
-    ];
-
-    let roleIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-
-    function typeEffect() {
-        if (!typingText) return;
-
-        const currentRole = roles[roleIndex];
-
-        if (deleting) {
-            charIndex--;
-        } else {
-            charIndex++;
-        }
-
-        typingText.textContent = currentRole.substring(0, charIndex);
-
-        let speed = deleting ? 45 : 85;
-
-        if (!deleting && charIndex === currentRole.length) {
-            deleting = true;
-            speed = 1500;
-        } else if (deleting && charIndex === 0) {
-            deleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            speed = 400;
-        }
-
-        setTimeout(typeEffect, speed);
-    }
-
-    if (typingText) {
-        typeEffect();
-    }
-
-
-    // =====================================
-    // SCROLL REVEAL ANIMATIONS
-    // =====================================
-
-    const revealElements = document.querySelectorAll(".reveal");
-
-    const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if ("IntersectionObserver" in window && !prefersReducedMotion) {
-
-        const revealObserver = new IntersectionObserver(
-            (entries, observer) => {
-
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("visible");
-
-                        // Animate each element only once
-                        observer.unobserve(entry.target);
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12,
-                rootMargin: "0px 0px -35px 0px"
-            }
-        );
-
-        revealElements.forEach(element => {
-            revealObserver.observe(element);
+            menuToggle.setAttribute("aria-expanded", isOpen);
+            menuToggle.innerHTML = isOpen ? "&times;" : "&#9776;";
         });
 
-    } else {
+        // Close menu after clicking a navigation link
+        navLinks.querySelectorAll("a").forEach(function (link) {
 
-        revealElements.forEach(element => {
-            element.classList.add("visible");
+            link.addEventListener("click", function () {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                menuToggle.innerHTML = "&#9776;";
+            });
+
         });
-
     }
 
+    // SCROLL REVEAL ANIMATION
+    const revealElements = document.querySelectorAll(
+        "section, .skill-card, .project-card, .about-card"
+    );
 
-    // =====================================
-    // STAGGERED CARD ANIMATIONS
-    // =====================================
-
-    const cardGroups = [
-        ".skills-grid",
-        ".projects-grid",
-        ".journey-grid"
-    ];
-
-    cardGroups.forEach(selector => {
-
-        const cards = document.querySelectorAll(
-            `${selector} .reveal`
-        );
-
-        cards.forEach((card, index) => {
-            card.style.transitionDelay = `${(index % 3) * 100}ms`;
-        });
-
+    revealElements.forEach(function (element) {
+        element.classList.add("reveal");
     });
-
-
-    // =====================================
-    // ACTIVE NAVIGATION ON SCROLL
-    // =====================================
-
-    const sections = document.querySelectorAll("main section[id]");
 
     if ("IntersectionObserver" in window) {
 
-        const sectionObserver = new IntersectionObserver(
-            entries => {
+        const observer = new IntersectionObserver(function (entries) {
 
-                entries.forEach(entry => {
+            entries.forEach(function (entry) {
 
-                    if (entry.isIntersecting) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    observer.unobserve(entry.target);
+                }
 
-                        const currentId = entry.target.id;
+            });
 
-                        navLinks.forEach(link => {
+        }, {
+            threshold: 0.12
+        });
 
-                            const linkTarget = link.getAttribute("href");
+        revealElements.forEach(function (element) {
+            observer.observe(element);
+        });
 
-                            link.classList.toggle(
-                                "active",
-                                linkTarget === `#${currentId}`
-                            );
+    } else {
+        revealElements.forEach(function (element) {
+            element.classList.add("show");
+        });
+    }
 
-                        });
+    // ACTIVE NAVIGATION LINK
+    const sections = document.querySelectorAll("section[id]");
+    const navItems = document.querySelectorAll(".nav-links a");
 
-                    }
+    function updateActiveLink() {
 
-                });
+        let currentSection = "";
 
-            },
-            {
-                rootMargin: "-30% 0px -60% 0px",
-                threshold: 0
+        sections.forEach(function (section) {
+
+            const sectionTop = section.offsetTop - 150;
+
+            if (window.scrollY >= sectionTop) {
+                currentSection = section.getAttribute("id");
             }
-        );
 
-        sections.forEach(section => {
-            sectionObserver.observe(section);
         });
 
-    }
+        navItems.forEach(function (link) {
 
+            link.classList.remove("active");
 
-    // =====================================
-    // BACK TO TOP BUTTON
-    // =====================================
+            if (
+                link.getAttribute("href") === "#" + currentSection
+            ) {
+                link.classList.add("active");
+            }
 
-    const backTop = document.getElementById("backTop");
-
-    function toggleBackTop() {
-        if (window.scrollY > 500) {
-            backTop?.classList.add("visible");
-        } else {
-            backTop?.classList.remove("visible");
-        }
-    }
-
-    window.addEventListener("scroll", toggleBackTop, {
-        passive: true
-    });
-
-    backTop?.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behavior: prefersReducedMotion ? "auto" : "smooth"
         });
-    });
-
-    toggleBackTop();
-
-
-    // =====================================
-    // PROFILE IMAGE FALLBACK
-    // =====================================
-
-    const profileImage = document.getElementById("profileImage");
-    const imageFallback = document.getElementById("imageFallback");
-
-    function handleProfileImage() {
-
-        if (!profileImage || !imageFallback) return;
-
-        if (profileImage.complete && profileImage.naturalWidth === 0) {
-
-            profileImage.style.display = "none";
-            imageFallback.style.display = "flex";
-
-        } else {
-
-            profileImage.addEventListener("error", () => {
-                profileImage.style.display = "none";
-                imageFallback.style.display = "flex";
-            });
-
-            profileImage.addEventListener("load", () => {
-                profileImage.style.display = "block";
-                imageFallback.style.display = "none";
-            });
-
-        }
-
     }
 
-    handleProfileImage();
+    window.addEventListener("scroll", updateActiveLink);
+    updateActiveLink();
 
-
-    // =====================================
-    // CONTACT FORM
-    // Opens the user's email application
-    // =====================================
-
-    const contactForm = document.getElementById("contactForm");
-
-    contactForm?.addEventListener("submit", event => {
-
-        event.preventDefault();
-
-        if (!contactForm.checkValidity()) {
-            contactForm.reportValidity();
-            return;
-        }
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const subject = document.getElementById("subject").value.trim();
-        const message = document.getElementById("message").value.trim();
-
-        if (!name || !email || !subject || !message) {
-            alert("Please fill in all fields before sending.");
-            return;
-        }
-
-        const recipient = "emmystick785@gmail.com";
-
-        const emailSubject = encodeURIComponent(
-            `${subject} — From ${name}`
-        );
-
-        const emailBody = encodeURIComponent(
-            `Hello Emmystick,\n\n` +
-            `${message}\n\n` +
-            `From: ${name}\n` +
-            `Email: ${email}`
-        );
-
-        const mailtoLink =
-            `mailto:${recipient}?subject=${emailSubject}&body=${emailBody}`;
-
-        window.location.href = mailtoLink;
-
-    });
-
-
-    // =====================================
     // CURRENT YEAR IN FOOTER
-    // =====================================
+    const yearElement = document.querySelector("#year");
 
-    const currentYear = document.getElementById("currentYear");
-
-    if (currentYear) {
-        currentYear.textContent = new Date().getFullYear();
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
     }
 
+    // CONTACT FORM VALIDATION
+    const contactForm = document.querySelector(".contact-form");
 
-    // =====================================
-    // EXTERNAL LINKS SECURITY
-    // =====================================
+    if (contactForm) {
 
-    document.querySelectorAll('a[target="_blank"]').forEach(link => {
-        link.setAttribute("rel", "noopener noreferrer");
-    });
+        contactForm.addEventListener("submit", function (event) {
 
+            event.preventDefault();
 
-    // =====================================
-    // CONSOLE BRANDING
-    // =====================================
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
 
-    console.log(
-        "%c EMMYSTICK ",
-        "background: linear-gradient(135deg,#4385ff,#9b6dff); color: white; font-size: 20px; font-weight: bold; padding: 10px;"
-    );
+            const name = contactForm.querySelector(
+                '[name="name"], #name'
+            );
 
-    console.log(
-        "%cLearning. Building. Creating.",
-        "color: #6da2ff; font-size: 13px;"
-    );
+            const email = contactForm.querySelector(
+                '[name="email"], #email'
+            );
+
+            const message = contactForm.querySelector(
+                '[name="message"], #message'
+            );
+
+            if (!name || !email || !message) {
+                alert("Please check your contact form fields.");
+                return;
+            }
+
+            // Open the visitor's email application
+            const subject = encodeURIComponent(
+                "Portfolio Contact from " + name.value.trim()
+            );
+
+            const body = encodeURIComponent(
+                "Name: " + name.value.trim() +
+                "\nEmail: " + email.value.trim() +
+                "\n\nMessage:\n" + message.value.trim()
+            );
+
+            const mailtoLink =
+                "mailto:emmystick785@gmail.com" +
+                "?subject=" + subject +
+                "&body=" + body;
+
+            window.location.href = mailtoLink;
+        });
+    }
+
+    // BACK TO TOP BUTTON
+    const backToTop = document.querySelector("#backToTop");
+
+    if (backToTop) {
+
+        window.addEventListener("scroll", function () {
+            backToTop.style.display =
+                window.scrollY > 400 ? "block" : "none";
+        });
+
+        backToTop.addEventListener("click", function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+    }
 
 });
