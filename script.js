@@ -1,4 +1,4 @@
-
+I'm
 // ============================================
 // EMMYSTICK PORTFOLIO
 // Interactive JavaScript
@@ -242,5 +242,56 @@ document.addEventListener("DOMContentLoaded", () => {
     handleScroll();
 
 });
+// ---------- BACK TO TOP BUTTON ----------
+const backToTop = document.querySelector("#backToTop");
 
+if (backToTop) {
+    backToTop.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+// ---------- FOOTER YEAR ----------
+const yearElement = document.querySelector("#year");
+
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
+
+// ---------- CONTACT FORM ----------
+const contactForm = document.querySelector("#contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const name = document.querySelector("#name")?.value.trim();
+        const email = document.querySelector("#email")?.value.trim();
+        const message = document.querySelector("#message")?.value.trim();
+
+        if (!name || !email || !message) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        const subject = encodeURIComponent(
+            `Portfolio Contact from ${name}`
+        );
+
+        const body = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+        );
+
+        window.location.href =
+            `mailto:emmystick785@gmail.com?subject=${subject}&body=${body}`;
+    });
+}
+
+// ---------- INITIAL PAGE SETUP ----------
+handleScroll();
+
+});
  
